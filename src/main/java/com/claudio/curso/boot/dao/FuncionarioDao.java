@@ -1,5 +1,6 @@
 package com.claudio.curso.boot.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.claudio.curso.boot.domain.Funcionario;
@@ -17,5 +18,13 @@ public interface FuncionarioDao {
 	List<Funcionario> findAll();
 
 	List<Funcionario> findByNome(String nome);
+
+	List<Funcionario> findByCargoId(Long id);
+
+	List<Funcionario> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida);
+
+	List<Funcionario> findByDataEntrada(LocalDate entrada);
+
+	List<Funcionario> findByDataSaida(LocalDate saida);
 
 }
