@@ -1,28 +1,38 @@
 package com.claudio.curso.boot.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "ENDERECOS")
 public class Endereco extends AbstractEntity<Long> {
 
+	@NotBlank(message = "Informe um logradouro.")
 	@Column(nullable = false)
 	private String logradouro;
 
+	@NotBlank(message = "Informe um bairro.")
 	@Column(nullable = false)
 	private String bairro;
 
+	@NotBlank(message = "Informe uma cidade.")
 	@Column(nullable = false)
 	private String cidade;
 
+	@NotNull(message = "Informe uma UF.")
 	@Column(nullable = false, length = 2)
 	@Enumerated(EnumType.STRING)
 	private UF uf;
 
+	@NotBlank(message = "Informe um CEP.")
+	@Size(min = 9, message = "O CEP deve conter 9 caracteres.")
 	@Column(nullable = false, length = 9)
 	private String cep;
 
+	@NotNull(message = "Informe um número.")
 	@Column(nullable = false, length = 5)
 	private Integer numero;
 
