@@ -1,6 +1,7 @@
 package com.claudio.curso.boot.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -33,6 +34,7 @@ public class Endereco extends AbstractEntity<Long> {
 	private String cep;
 
 	@NotNull(message = "Informe um número.")
+	@Digits(integer = 5, fraction = 0)
 	@Column(nullable = false, length = 5)
 	private Integer numero;
 
